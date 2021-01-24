@@ -1,3 +1,4 @@
+import json
 from src.database.country_dto import Country
 from pymongo import MongoClient
 from src.configuration.resources import *
@@ -27,7 +28,7 @@ class DatabaseManager:
             self.__client = MongoClient(DatabaseManager.__CONNECTION_STRING)
 
 
-    def _get_collection(self, db_name, collection_name):
+    def _get_collection(self, db_name : str, collection_name : str):
         """Generic method to connect to a given collection in a given database
         If the database or the collection doesn't exist, it will be created.
         Args:
@@ -39,7 +40,7 @@ class DatabaseManager:
         return self.__client.get_database(db_name).get_collection(collection_name)
 
 
-    def get_country_by_name(self, name) -> Country:
+    def get_country_by_name(self, name : str) -> Country:
         """ Get a country by its name.
         Args:
             name (str): name of the country.
@@ -55,7 +56,7 @@ class DatabaseManager:
 
         return response
 
-    def set_country(self, name, country = None) -> Country:
+    def set_country(self, name : str, country = None) -> Country:
         """ Add a new country to the databse with random informations if not set.
         Args:
             name (str): name of the country.
@@ -73,7 +74,7 @@ class DatabaseManager:
 
         return self.get_country_by_name(name)
 
-    def delete_country_by_name(self, name) -> str:
+    def delete_country_by_name(self, name : str) -> str:
         """Delete a country by its name.
         Args:
             name (str): name of the country.
@@ -88,7 +89,7 @@ class DatabaseManager:
         return {"Message": "The country has been deleted."}
 
 
-    def update_country_by_name(self, name, updated_data) -> Country:
+    def update_country_by_name(self, name : str, updated_data : json) -> Country:
         """Update a country by its name.
         Args:
             name (str): name of the country.
@@ -106,7 +107,7 @@ class DatabaseManager:
 
         return self.get_country_by_name(name)
 
-    def get_countries_by_density(self, quarter1_v_low, quarter2_low, quarter3_medium ) -> str:
+    def get_countries_by_density(self, quarter1_v_low : int, quarter2_low : int, quarter3_medium : int) -> str:
         """ Function that group countries by density
 
         Args:

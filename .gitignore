@@ -153,3 +153,4 @@ dmypy.json
 # End of https://www.toptal.com/developers/gitignore/api/vscode,python
 
 !*.gitkeep
+/.vscode/settings.json

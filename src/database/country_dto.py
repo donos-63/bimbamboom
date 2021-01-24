@@ -5,11 +5,26 @@ from src.configuration.resources import *
 
 class Country():
 
-    def _rand_decimal(min, max, precision= 2) -> float:
+    def _rand_decimal(min : int, max : int, precision= 2) -> float:
+        """Generate random decimal number
+
+        Args:
+            min ([int): min value
+            max (int): max value
+            precision (int, optional): Decimal precision. Defaults to 2.
+
+        Returns:
+            float: randomly created decimal
+        """
         precision = 10^precision
         return rd.randint(min * precision, max * precision) / precision
 
     def generate_random_country(self, name : str):
+        """Generate a random country with consistent values
+
+        Args:
+            name (str): the name of the new country
+        """
         self.name = str.lower(name)
         self.pop_total = rd.randint(500,2000000000) #population between 10k to 3b
         self.yearly_change =  Country._rand_decimal(-10, 10) #yearly population change in %. Limited to 10%
@@ -24,6 +39,11 @@ class Country():
 
 
     def to_json(self) -> str :
+        """Convert country instance to json
+
+        Returns:
+            str: [description]
+        """
 
         json =  {"name": str.lower(self.name), 
                     "population": self.pop_total, 
@@ -42,6 +62,21 @@ class Country():
         return json
 
     def initialize_country(self, name : str, population : int , yearly_change: float, net_change : int, density : int, land_area : int, migrants, fertilisation_rate : float, med_age : int, urban_pop : float, world_share : float):
+        """Create a country from given values
+
+        Args:
+            name (str): name of the country 
+            population (int): number of people living in the country
+            yearly_change (float): variation of population in 1 year (%)
+            net_change (int): variation of population in 1 year (number)
+            density (int): population density
+            land_area (int): land area
+            migrants ([type]): number of migrant (%)
+            fertilisation_rate (float): fertilisation rate
+            med_age (int): medium age
+            urban_pop (float): number of people living in towns (%)
+            world_share (float): ???
+        """
         self.name = str.lower(name)
         self.pop_total = population
         self.yearly_change = float(yearly_change) if yearly_change is not None else None 

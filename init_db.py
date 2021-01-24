@@ -2,6 +2,7 @@ from src.database.db_access import DatabaseManager
 from src.database.country_dto import Country
 import pandas as pd
 import os
+import sys
 
 data_folder = os.path.join(os.getcwd(), "src", "data", "in", "countries_data.csv" )
 
@@ -26,5 +27,9 @@ for index, row in df.iterrows():
     c.initialize_country(row['name'], row['population'], row['yearly_change'].replace(" %", ''), row['net_change'], row['density'], row['land_area'], row['migrants'], row['fertilisation_rate'], row['med_age'], row['urban_pop'].replace(" %", ''), row['world_share'].replace(" %", ''))
     #insert in db
     DatabaseManager.getInstance().set_country(row['name'], c)
+    done = int(100 * index / len(df))
+    sys.stdout.write("\r[%s%s] %s/%s" % ('=' * done, ' ' * (100-done), index + 1, len(df))) 
+    sys.stdout.flush()
 
+print('', end = "\r\n")
 print('database initialisation completed')
