@@ -34,6 +34,7 @@ Get a local copy up and running following these steps.
     ```
     
 2. Update db connexion informations in [src/configuration/resources.py](https://github.com/donos-63/bimbamboom/blob/main/src/configuration/resources.py)
+ * The current project is given with authentication keys to a limited account to Atlas MongoDb
 3. Install the requirements :
     ```sh
     pip install -r requirements.txt
@@ -45,7 +46,7 @@ Get a local copy up and running following these steps.
 
 * Run [main.py](https://github.com/donos-63/bimbamboom/blob/main/main.py) to start the flask server.  
   * The API will be launched on port 8080.
-* Open [test.ipynb](https://github.com/donos-63/bimbamboom/blob/main/tests.ipynb) to read the API tests and make some new ones.  
+* Open [test.ipynb](https://github.com/donos-63/bimbamboom/blob/main/test.ipynb) to read the API tests and make some new ones.  
 
 
 ### Routes
