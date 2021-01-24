@@ -34,7 +34,7 @@ Get a local copy up and running following these steps.
     ```
     
 2. Update db connexion informations in [src/configuration/resources.py](https://github.com/donos-63/bimbamboom/blob/main/src/configuration/resources.py)
- * The current project is given with authentication keys to a limited account to Atlas MongoDb
+ * The current project is given with authentication keys to Atlas MongoDb provider
 3. Install the requirements :
     ```sh
     pip install -r requirements.txt
