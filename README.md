@@ -45,7 +45,7 @@ Get a local copy up and running following these steps.
 
 * Run [main.py](https://github.com/donos-63/bimbamboom/blob/main/main.py) to start the flask server.  
   * The API will be launched on port 8080.
-* Open [tests.ipynb](https://github.com/donos-63/bimbamboom/blob/main/tests.ipynb) to read the API tests and make some new ones.  
+* Open [test.ipynb](https://github.com/donos-63/bimbamboom/blob/main/tests.ipynb) to read the API tests and make some new ones.  
 
 
 ### Routes
@@ -56,6 +56,6 @@ Get a local copy up and running following these steps.
 * ```/api/density``` *(**POST** method)* group countries by density. 
 
 ### Settings
-* [configuration > resources.py](https://github.com/donos-63/bimbamboom/blob/main/src/configuration/ressources.py) contains the connection settings and environment variables.   
+* [configuration > resources.py](https://github.com/donos-63/bimbamboom/blob/main/src/configuration/resources.py) contains the connection settings and environment variables.   
 * [database > db_access.py](https://github.com/donos-63/bimbamboom/blob/main/src/database/db_access.py) provides the methods and connection to the MongoDb database.
 
